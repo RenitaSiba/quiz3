@@ -45,7 +45,7 @@ class loginPage{
         cy.intercept('GET','https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode').as('ResetCode');
     }
     verifyForgotPasswordAPI(){
-      cy.wait('@ResetCode').its('response.statusCode').should('eq',200)  
+        cy.wait('@ResetCode').its('response.statusCode').should('eq',200)  
     }
     assertionForgotPassword(){
         cy.url().should('include', 'auth/requestPasswordResetCode')
